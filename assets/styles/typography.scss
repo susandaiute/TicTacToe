@@ -1,0 +1,23 @@
+
+
+body {
+  background-color: $body-background-color;
+  color: $font-color;
+  margin: 40px;
+  text-align: center;
+}
+
+
+
+h1 {
+  color: $h1color;
+}
+
+
+.col-md-4 {
+  background-color: $row-background-color;
+  border: 2px solid $row-border-color;
+  color: $row-font-color;
+  height: 100px;
+  width: 100px;
+}
