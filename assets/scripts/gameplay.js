@@ -15,34 +15,31 @@ let whoPlay;
 let playerX;
 let playerO;
 
+const turnCount = function(){
+  turns++;
+};
+
 const getPlayer = function() {
-  if(playerTurn%2===0){
-    playerO;
+  if(turns%2===0){
+    return "playerO";
   } else {
-    playerX;
+    return "playerX";
   }
 };
 
-const displayPlayer = function(){
+const boxClicked = function(){
   if(getPlayer()==="playerO") {
     console.log("Go Player O");
-  } else {
+    document.getElementById(boxId).value="O";
+ } else {
   	console.log("Go Player X");
+    document.getElementById(boxId).value="X";
   }
 };
 
-displayPlayer();
 
-const turnCount = function(){
-  turn++;
+
+
+const checkWin = function(){
+
 };
-
-const boxClicked = function(boxId){
-  if(getPlayer===playerO){
-  document.getElementById(boxId).value="O";
-} else {
-  document.getElementById(boxId).value="X";
-};
-
-
-const checkWin = function();
