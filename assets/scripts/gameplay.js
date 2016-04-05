@@ -9,35 +9,40 @@ let squareUsed = [];
 
 let playerXChoice;
 let playerOChoice;
-let playerTurn=1;
+let turns=1;
 let whoPlay;
 
 let playerX;
-let playerY;
+let playerO;
 
 const getPlayer = function() {
   if(playerTurn%2===0){
-    playerY;
+    playerO;
   } else {
     playerX;
   }
 };
 
+const displayPlayer = function(){
+  if(getPlayer()==="playerO") {
+    console.log("Go Player O");
+  } else {
+  	console.log("Go Player X");
+  }
+};
 
+displayPlayer();
+
+const turnCount = function(){
+  turn++;
+};
 
 const boxClicked = function(boxId){
-  document.getElementById(boxId).text == "X";
+  if(getPlayer===playerO){
+  document.getElementById(boxId).value="O";
+} else {
+  document.getElementById(boxId).value="X";
 };
 
 
-
-
-
-
-
-const checkWin = function(){};
-
-
-
-
-module.exports=true;
+const checkWin = function();
