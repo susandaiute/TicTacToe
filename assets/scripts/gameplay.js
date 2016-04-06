@@ -7,7 +7,6 @@ let winningCombos =[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4
 
 
 let turns=0;
-let taken;
 
 const getPlayer = function() {
  if(turns%2===0) {
@@ -18,15 +17,18 @@ const getPlayer = function() {
 };
 
 const boxClicked = function(boxId) {
-  $('.gametile#' + boxId).html('O');
-  if(getPlayer()==="playerO") {
+  if(!$('.gametile#' + boxId).hasClass('taken') && getPlayer()==='playerO')
+    {
     $('.gametile#' + boxId).html('O');
+    $('.gametile#' + boxId).addClass('taken')
     turns++;
-    alert("Go Player X");
- } else if(getPlayer()==="playerX") {
+    $('.turnAlert').html('Go Player X');
+ } else if( !$('.gametile#' + boxId).hasClass('taken')&& getPlayer()==='playerX')
+ {
     $('.gametile#' + boxId).html('X');
+    $('.gametile#' + boxId).addClass('taken')
     turns++;
-    alert("Go Player O");
+    $('.turnAlert').html('Go Player O');
   } else {alert("Cell Unavailable");
  }
 };

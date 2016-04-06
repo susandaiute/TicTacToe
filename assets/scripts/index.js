@@ -4,6 +4,8 @@
 // var example = require('./example');
 
 // use require without a reference to ensure a file is bundled
+const libraryApi = require('./library-api');
+const ui = require('./ui');
 require('./example');
 require('./gameplay');
 
@@ -23,6 +25,6 @@ $(document).ready(function() {
   $('.save-btn').on('click', function(e) {
     e.preventDefault();
     let text = $('#exampleInputEmailsignUp').val();
-    console.log(text);
+    libraryApi.users();
   });
 });
