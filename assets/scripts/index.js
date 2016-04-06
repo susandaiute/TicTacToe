@@ -8,6 +8,7 @@ require('./example');
 require('./gameplay');
 
 
+
 //Sign In
 $(document).ready(function() {
   $('.save-btn').on('click', function(e) {
