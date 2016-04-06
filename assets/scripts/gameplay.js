@@ -17,30 +17,37 @@ const getPlayer = function() {
   }
 };
 
-$('.container').on('click', 'div', function (e) {
+let boxId = $('.container').on('click', 'div', function (e) {
     e.preventDefault();
-    alert($(this).attr('id'));
+    ($(this).attr('id'));
 });
 
-const boxTaken = function (){
-  if (($('#1').html!=='O') || ($('#1').html !=='X')) {
-    let taken=true;
-  }
-};
+//const boxTaken = function (){
+//  if (($('#1').html!=='O') || ($('#1').html !=='X')) {
+//    let taken=true;
+//  }
+//};
 
 const boxClicked = function() {
-  if((getPlayer()==="playerO") && (taken!==true)) {
+  if(getPlayer()==="playerO") {
+  //&& (taken!==true)) {
     $('#1').html('O');
     turns++;
     alert("Go Player X");
- } else if((getPlayer()==="playerX") && (taken!==true)) {
+ } else if(getPlayer()==="playerX") {
+ //&& (taken!==true)) {
     $('#1').html('X');
     turns++;
     alert("Go Player O");
-  } else alert("Cell Unavailable");
+  } else {alert("Cell Unavailable");
+ }
 };
 
-$('#1').on("click", boxClicked);
+//$('#1').on("click", boxClicked());
+
+
+
+$(document).ready(function() { $('#1').bind("click", boxClicked); });
 
 
 
