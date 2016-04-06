@@ -17,37 +17,25 @@ const getPlayer = function() {
   }
 };
 
-let boxId = $('.container').on('click', 'div', function (e) {
-    e.preventDefault();
-    ($(this).attr('id'));
-});
-
-//const boxTaken = function (){
-//  if (($('#1').html!=='O') || ($('#1').html !=='X')) {
-//    let taken=true;
-//  }
-//};
-
-const boxClicked = function() {
+const boxClicked = function(boxId) {
+  $('.gametile#' + boxId).html('O');
   if(getPlayer()==="playerO") {
-  //&& (taken!==true)) {
-    $('#1').html('O');
+    $('.gametile#' + boxId).html('O');
     turns++;
     alert("Go Player X");
  } else if(getPlayer()==="playerX") {
- //&& (taken!==true)) {
-    $('#1').html('X');
+    $('.gametile#' + boxId).html('X');
     turns++;
     alert("Go Player O");
   } else {alert("Cell Unavailable");
  }
 };
 
-//$('#1').on("click", boxClicked());
 
-
-
-$(document).ready(function() { $('#1').bind("click", boxClicked); });
+$('.gametile').on('click', function (){
+  let boxId = $(this).attr('id');
+  boxClicked(boxId);
+});
 
 
 
