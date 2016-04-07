@@ -3,7 +3,6 @@
 const app = require('./app-data');
 
 const signUp = (success, failure, data) => {
-  // debugger;
   $.ajax({
     method: 'POST',
     url: app.api + '/sign-up',
