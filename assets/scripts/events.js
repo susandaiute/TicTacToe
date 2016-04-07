@@ -17,7 +17,7 @@ const addHandlers = () => {
     let data = getFormFields(this);
     authApi.signIn(authUi.signInSuccess, authUi.failure, data);
   });
-  $('#sign-out').on('submit', function (event) {
+  $('#sign-out').on('click', function (event) {
     event.preventDefault();
     authApi.signOut(authUi.signOutSuccess, authUi.failure);
     console.log('sign out worked');

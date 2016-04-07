@@ -2,6 +2,7 @@
 
 
 const authEvents = require('./events.js');
+require('./gameplay');
 
 
 
