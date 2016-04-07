@@ -12,15 +12,15 @@ const addHandlers = () => {
     console.log(data);
     authApi.signUp(authUi.success, authUi.failure, data);
   });
-  $('#sign-in').on('submit', function (event) {
+  $('#signInForm').on('submit', function (event) {
     event.preventDefault();
     let data = getFormFields(this);
     authApi.signIn(authUi.signInSuccess, authUi.failure, data);
-    console.log('signupworked');
   });
   $('#sign-out').on('submit', function (event) {
     event.preventDefault();
     authApi.signOut(authUi.signOutSuccess, authUi.failure);
+    console.log('sign out worked');
   });
 };
 
