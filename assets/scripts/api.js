@@ -22,7 +22,6 @@ const signIn = (success, failure, data) => {
 };
 
 const signOut = (success, failure) => {
-  // if (!app.user) bad;     what that means is "if app.user" is unset, null
   $.ajax({
     method: 'DELETE',
     url: app.api + '/sign-out/' + app.user.id,

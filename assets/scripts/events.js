@@ -20,7 +20,6 @@ const addHandlers = () => {
   $('#sign-out').on('click', function (event) {
     event.preventDefault();
     authApi.signOut(authUi.signOutSuccess, authUi.failure);
-    console.log('sign out worked');
   });
 };
 

@@ -1,8 +1,9 @@
 'use strict';
 
-
+////Keeps tracks of how many moves have been made
 let turns=0;
 
+/////////Checks for win by Player O
 const checkWinO = function () {
   if ($('#0').hasClass("chosenO") && $('#1').hasClass("chosenO") && $('#2').hasClass("chosenO") ||
 $('#3').hasClass("chosenO") && $('#4').hasClass("chosenO") && $('#5').hasClass("chosenO") ||
@@ -17,6 +18,7 @@ $('#2').hasClass("chosenO") && $('#4').hasClass("chosenO") && $('#6').hasClass("
   return false;
 }};
 
+////////Checks for win by Player X
 const checkWinX = function () {
   if ($('#0').hasClass("chosenX") && $('#1').hasClass("chosenX") && $('#2').hasClass("chosenX") ||
 $('#3').hasClass("chosenX") && $('#4').hasClass("chosenX") && $('#5').hasClass("chosenX") ||
@@ -32,13 +34,14 @@ $('#2').hasClass("chosenX") && $('#4').hasClass("chosenX") && $('#6').hasClass("
 }};
 
 
-
+///////Checks for a tie
 const checkTie = function(){
   if(turns===9 && checkWinX()===false && checkWinO()===false){
     alert('Tie');
   }
 };
 
+////////Checks whose turn it is
 const getPlayer = function() {
  if(turns%2===0) {
    return "playerO";
@@ -47,12 +50,14 @@ const getPlayer = function() {
   }
 };
 
+///////Adds 'taken' class to box that was clicked and changes box text to either
+///// X or O.  Then, increments turns by 1.  Checks for a win and then a tie.
+////Alerts next player.  Will alert that cell is unavailable if needed.
 const boxClicked = function(boxId) {
   if(!$('.gametile#' + boxId).hasClass('taken') && getPlayer()==='playerO') {
     $('.gametile#' + boxId).html('O');
     $('.gametile#' + boxId).addClass('taken chosenO');
     turns++;
-    
     checkWinO();
     checkTie();
     $('.turnAlert').html('Go Player X');
@@ -67,7 +72,7 @@ const boxClicked = function(boxId) {
  }
 };
 
-
+/////Gets Id of a box that was clicked and passes that into boxClicked function
 $('.gametile').on('click', function (){
   let boxId = $(this).attr('id');
   boxClicked(boxId);
