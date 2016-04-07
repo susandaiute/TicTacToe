@@ -8,25 +8,32 @@ const libraryApi = require('./library-api');
 const ui = require('./ui');
 require('./example');
 require('./gameplay');
+const authEvents = require('./auth/events.js');
+
+
+$(() => {
+  authEvents.addHandlers();
+});
 
 
 
 
 //Sign In
-// $(document).ready(function() {
-//   $('.save-btn').on('click', function(e) {
-//     e.preventDefault();
-//     let text = $('#exampleInputEmail1').val();
-//     console.log(text);
-//   });
-// });
+$(document).ready(function() {
+  $('.save-btn').on('click', function(e) {
+    e.preventDefault();
+    let text = $('#exampleInputEmail1').val();
+    console.log(text);
+  });
+});
 
 //Sign Up
-// $(document).ready(function() {
-//   $('#signUpForm').on('click', function(e) {
-//     e.preventDefault();
-//     let text = $('#exampleInputEmailsignUp').val();
-//     libraryApi.users(ui.getUsersSuccess, ui.getUsersFail, form, user);
-//     console.log(text);
-//   });
-// });
+
+$(() => {
+  $('#signUpForm').on('submit', function (e) {
+    let data = getFormFields(this);
+    e.preventDefault();
+    let text = $('#exampleInputEmailsignUp').val();
+    api.myRequest(data, ui.success, ui.failure);
+  });
+});

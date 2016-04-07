@@ -32,12 +32,13 @@ module.exports = {
 ```js
 'use strict';
 
+
 const success = (data) => {
-  // handle success
+  onsole.log(data.books);
 };
 
 const failure = (err) => {
-  // handle failure
+  console.error(error);
 };
 
 module.exports = {
@@ -60,6 +61,6 @@ $(() => {
     let data = getFormFields(this);
     e.preventDefault();
     api.myRequest(data, ui.success, ui.failure);
-  });  
+  });
 });
 ```
