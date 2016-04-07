@@ -11,20 +11,22 @@ require('./gameplay');
 
 
 
+
 //Sign In
-$(document).ready(function() {
-  $('.save-btn').on('click', function(e) {
-    e.preventDefault();
-    let text = $('#exampleInputEmail1').val();
-    console.log(text);
-  });
-});
+// $(document).ready(function() {
+//   $('.save-btn').on('click', function(e) {
+//     e.preventDefault();
+//     let text = $('#exampleInputEmail1').val();
+//     console.log(text);
+//   });
+// });
 
 //Sign Up
-$(document).ready(function() {
-  $('.save-btn').on('click', function(e) {
-    e.preventDefault();
-    let text = $('#exampleInputEmailsignUp').val();
-    libraryApi.users();
-  });
-});
+// $(document).ready(function() {
+//   $('#signUpForm').on('click', function(e) {
+//     e.preventDefault();
+//     let text = $('#exampleInputEmailsignUp').val();
+//     libraryApi.users(ui.getUsersSuccess, ui.getUsersFail, form, user);
+//     console.log(text);
+//   });
+// });

@@ -5,7 +5,7 @@ const users = (form) => {
   console.log('Start request');
   $.ajax({
     method: 'POST',
-    url: ' http://tic-tac-toe.wdibos.com',
+    url: 'http://tic-tac-toe.wdibos.com',
     //for debugging: url: 'http://httpbin.org/post',
     processData: false,
     data: form,
