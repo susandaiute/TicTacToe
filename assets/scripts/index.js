@@ -4,36 +4,37 @@
 // var example = require('./example');
 
 // use require without a reference to ensure a file is bundled
-const libraryApi = require('./library-api');
-const ui = require('./ui');
-require('./example');
-require('./gameplay');
-const authEvents = require('./auth/events.js');
+// const getFormFields = require('../../lib/get-form-fields');
+const authEvents = require('./events.js');
+// const api = require('./api');
+// const ui = require('./ui');
+// require('./example');
+// require('./gameplay');
+// require('../../spec/forms.');
 
 
-$(() => {
+
+$(document).ready(function() {
   authEvents.addHandlers();
 });
 
 
-
-
 //Sign In
-$(document).ready(function() {
-  $('.save-btn').on('click', function(e) {
-    e.preventDefault();
-    let text = $('#exampleInputEmail1').val();
-    console.log(text);
-  });
-});
+// $(document).ready(function() {
+//   $('.save-btn').on('click', function(e) {
+//     e.preventDefault();
+//     let text = $('#exampleInputEmail1').val();
+//     console.log(text);
+//   });
+// });
 
 //Sign Up
 
-$(() => {
-  $('#signUpForm').on('submit', function (e) {
-    let data = getFormFields(this);
-    e.preventDefault();
-    let text = $('#exampleInputEmailsignUp').val();
-    api.myRequest(data, ui.success, ui.failure);
-  });
-});
+// $(() => {
+//   $('#signUpForm').on('submit', function (e) {
+//     let data = getFormFields(this);
+//     e.preventDefault();
+//     let text = $('#exampleInputEmailsignUp').val();
+//     api.myRequest(data, ui.success, ui.failure);
+//   });
+// });

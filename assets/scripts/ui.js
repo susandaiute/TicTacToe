@@ -1,6 +1,6 @@
 'use strict';
 
-const app = require('../app-data.js');
+const app = require('./app-data.js');
 
 const signInSuccess = (data) => {
   app.user = data.user;
