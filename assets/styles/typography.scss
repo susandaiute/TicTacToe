@@ -14,10 +14,13 @@ h1 {
 }
 
 
-.col-md-4 {
+.col-md-4.gametile {
   background-color: $row-background-color;
   border: 2px solid $row-border-color;
   color: $row-font-color;
   height: 100px;
   width: 100px;
+  p {
+    visibility: hidden;
+  }
 }
