@@ -51,16 +51,6 @@ $.ajax({
 console.log('patch ran');
 };
 
-const games = (success, fail) => {
-  console.log('Started request');
-  $.ajax({
-      method:'GET',
-      url: app.api + '/games/' + app.user.id,
-  })
-  .done(success)
-  .fail(fail);
-  console.log('Request queued');
-};
 
 
 
@@ -68,6 +58,5 @@ module.exports = {
   signUp,
   signIn,
   signOut,
-  updatePassword
-  games,
+  updatePassword,
 };

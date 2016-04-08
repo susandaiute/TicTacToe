@@ -26,13 +26,6 @@ const addHandlers = () => {
     event.preventDefault();
     authApi.updatePassword(authUi.updateSuccess, authUi.failure, data);
   });
-  $('#myGames').on('submit', function(event){
-    event.preventDefault();
-    $('#myGames').find("[name='book-id']").val();
-    libraryApi.books(ui.getGamesSuccess, ui.getGamesFail);
-    console.log('form submitted');
-  });
-});
 };
 
 
