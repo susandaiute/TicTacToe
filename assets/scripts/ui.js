@@ -24,10 +24,22 @@ const failure = (error) => {
   console.error(error);
 };
 
+const getGamesSuccess = (data) => {
+  if (data.books) {
+    console.log(data.users.length);
+  }
+};
+
+const getGamesFail = (error) => {
+  console.error(error);
+};
+
 module.exports = {
   failure,
   success,
   signInSuccess,
   signOutSuccess,
   updateSuccess,
+  getGamesFail,
+  getGamesSuccess,
 };
