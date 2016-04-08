@@ -12,6 +12,10 @@ const signOutSuccess = (data) => {
   console.log(app);
 };
 
+const updateSuccess = function (){
+  console.log('update worked');
+};
+
 const success = (data) => {
   console.log(data);
 };
@@ -25,4 +29,5 @@ module.exports = {
   success,
   signInSuccess,
   signOutSuccess,
+  updateSuccess,
 };

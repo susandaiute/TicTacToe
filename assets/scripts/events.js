@@ -24,7 +24,7 @@ const addHandlers = () => {
   $('#updatePassword').on('submit', function (event) {
     let data = getFormFields(this);
     event.preventDefault();
-    authApi.updatePassword(authUi.success, authUi.failure, data);
+    authApi.updatePassword(authUi.updateSuccess, authUi.failure, data);
   });
 };
 

@@ -31,7 +31,7 @@ const signOut = (success, failure) => {
   .fail(failure);
 };
 
-const updatePassword = (success, failure, data) => {
+const updatePassword = (updateSuccess, failure, data) => {
 console.log(app);
 let form = {
   "passwords": {
@@ -46,7 +46,7 @@ $.ajax({
   headers: {
     Authorization: 'Token token=' + app.user.token,
   },
-}).done(success)
+}).done(updateSuccess)
 .fail(failure);
 console.log('patch ran');
 };
