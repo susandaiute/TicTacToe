@@ -1,5 +1,8 @@
 'use strict';
 
+const api = require('./api.js');
+const ui = require('./ui.js');
+
 ////Keeps tracks of how many moves have been made
 let turns=0;
 
@@ -49,11 +52,24 @@ const getPlayer = function() {
    return "playerX";
   }
 };
+//////////
+
+const updateGamePlay = function(boxId) {
+  let index = boxId;
+  let value;
+  if (getPlayer() === "playerO") {
+    value = "X";
+  } else {
+    value = "O";
+  }
+  api.updateGame(ui.success, ui.failure, index, value);
+}; 
 
 ///////Adds 'taken' class to box that was clicked and changes box text to either
 ///// X or O.  Then, increments turns by 1.  Checks for a win and then a tie.
 ////Alerts next player.  Will alert that cell is unavailable if needed.
 const boxClicked = function(boxId) {
+  updateGamePlay(boxId);
   if(!$('.gametile#' + boxId).hasClass('taken') && getPlayer()==='playerO') {
     $('.gametile#' + boxId).html('O');
     $('.gametile#' + boxId).addClass('taken chosenO');

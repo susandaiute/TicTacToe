@@ -1,10 +1,12 @@
 'use strict';
 
 const app = require('./app-data.js');
+const api = require('./api.js');
 
 const signInSuccess = (data) => {
   app.user = data.user;
   console.log(app);
+  api.create(createSuccess, failure);
 };
 
 const signOutSuccess = (data) => {
@@ -22,6 +24,11 @@ const success = (data) => {
 
 const failure = (error) => {
   console.error(error);
+};
+
+const createSuccess = function (data) {
+  app.game = data.game;
+  console.log(app);
 };
 
 module.exports = {
