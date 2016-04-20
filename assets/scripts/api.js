@@ -81,11 +81,26 @@ $.ajax({
   data: gameObject,
   headers: {
     Authorization: 'Token token=' + app.user.token,
-  },
+  }
 }).done(success)
 .fail(failure);
 console.log('patch ran');
 };
+
+const index = (success, fail) => {
+  console.log('Started request');
+  $.ajax({
+      method:'GET',
+      url: app.api + '/games',
+      headers: {
+        Authorization: 'Token token=' + app.user.token,
+      }
+  })
+  .done(success)
+  .fail(fail);
+  console.log('Request queued');
+};
+
 
 
 module.exports = {
@@ -95,4 +110,5 @@ module.exports = {
   updatePassword,
   create,
   updateGame,
+  index,
 };

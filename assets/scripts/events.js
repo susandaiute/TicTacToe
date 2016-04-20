@@ -26,6 +26,11 @@ const addHandlers = () => {
     event.preventDefault();
     authApi.updatePassword(authUi.updateSuccess, authUi.failure, data);
   });
+  $('.getGames').on('click', function (event) {
+    event.preventDefault();
+    authApi.index(authUi.indexSuccess, authUi.failure);
+  });
+
 };
 
 
