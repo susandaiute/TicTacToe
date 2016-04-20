@@ -1,25 +1,89 @@
 
 
 body {
+  background: url('//i.imgur.com/45PH2fm.png') no-repeat center center fixed;
   background-color: $body-background-color;
+  background-size: cover;
   color: $font-color;
   margin: 40px;
   text-align: center;
+  z-index: 9999;
+}
+
+.navbar {
+  background-color: $navbar;
+  border: 0;
+  box-shadow: none;
+  height: 65px;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.nav {
+  display: inline-block;
+}
+
+.container-fluid {
+  border: 0;
+  box-shadow: none;
+  background-color: inherit;
+  color: white;
 }
 
 
 
 h1 {
   color: $h1color;
+  font-family: 'Helvetica', sans-serif;
+  font-size: 45px;
+  margin-top: 100px;
+}
+
+.container {
+  border: 10px solid $container-border;
+  height: 300px;
+  margin: 175px auto 100px;
+  position: relative;
+  width: 350px;
+}
+
+.top {
+  float: left;
+  height: 33%;
+  margin: auto;
+  position: relative;
+  width: 100%;
+}
+
+.middle {
+  clear: both;
+  float: left;
+  height: 33%;
+  margin: auto;
+  position: relative;
+  width: 100%;
+}
+
+.bottom {
+  clear: both;
+  float: left;
+  height: 33%;
+  margin: auto;
+  position: relative;
+  width: 100%;
 }
 
 
 .col-md-4.gametile {
-  background-color: $row-background-color;
+  background-color: $body-background-color;
   border: 2px solid $row-border-color;
   color: $row-font-color;
-  height: 100px;
-  width: 100px;
+  height: 100%;
+  position: relative;
+  width: 33%;
+
   p {
     visibility: hidden;
   }

@@ -51,6 +51,56 @@ $.ajax({
 console.log('patch ran');
 };
 
+///////////////Game State/////////////
+
+const create = (success, failure) => {
+  $.ajax({
+    method: 'POST',
+    url: app.api + '/games',
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    },
+  }).done(success)
+  .fail(failure);
+};
+
+const updateGame = (success, failure, index, value) => {
+console.log(app);
+let gameObject = {
+  "game": {
+    "cell": {
+      "index": 0,
+      "value": "x"
+    },
+    "over": false
+  }
+};
+$.ajax({
+  method : 'PATCH',
+  url: app.api + '/games/' + app.game.id,
+  data: gameObject,
+  headers: {
+    Authorization: 'Token token=' + app.user.token,
+  }
+}).done(success)
+.fail(failure);
+console.log('patch ran');
+};
+
+const index = (success, fail) => {
+  console.log('Started request');
+  $.ajax({
+      method:'GET',
+      url: app.api + '/games',
+      headers: {
+        Authorization: 'Token token=' + app.user.token,
+      }
+  })
+  .done(success)
+  .fail(fail);
+  console.log('Request queued');
+};
+
 
 
 
@@ -59,4 +109,7 @@ module.exports = {
   signIn,
   signOut,
   updatePassword,
+  create,
+  updateGame,
+  index,
 };

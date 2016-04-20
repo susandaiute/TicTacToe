@@ -1,9 +1,16 @@
 'use strict';
 
+const api = require('./api.js');
+const ui = require('./ui.js');
+
 ////Keeps tracks of how many moves have been made
 let turns=0;
 
-/////////Checks for win by Player O
+
+////////Sets gameOver variable to default of false, meaning game is in play ///
+let gameOver = false;
+
+/////////Checks for win by Player O ////////
 const checkWinO = function () {
   if ($('#0').hasClass("chosenO") && $('#1').hasClass("chosenO") && $('#2').hasClass("chosenO") ||
 $('#3').hasClass("chosenO") && $('#4').hasClass("chosenO") && $('#5').hasClass("chosenO") ||
@@ -18,7 +25,7 @@ $('#2').hasClass("chosenO") && $('#4').hasClass("chosenO") && $('#6').hasClass("
   return false;
 }};
 
-////////Checks for win by Player X
+////////Checks for win by Player X /////////////
 const checkWinX = function () {
   if ($('#0').hasClass("chosenX") && $('#1').hasClass("chosenX") && $('#2').hasClass("chosenX") ||
 $('#3').hasClass("chosenX") && $('#4').hasClass("chosenX") && $('#5').hasClass("chosenX") ||
@@ -38,10 +45,19 @@ $('#2').hasClass("chosenX") && $('#4').hasClass("chosenX") && $('#6').hasClass("
 const checkTie = function(){
   if(turns===9 && checkWinX()===false && checkWinO()===false){
     alert('Tie');
+  } else {
+    return false;
   }
 };
 
-////////Checks whose turn it is
+//////////////// Checks if game is over /////////////
+const checkGameOver = function () {
+  if (checkWinX !== false || checkWinO !== false || checkTie !== false) {
+    return true;
+  }
+};
+
+////////Checks whose turn it is ///////////
 const getPlayer = function() {
  if(turns%2===0) {
    return "playerO";
@@ -49,17 +65,31 @@ const getPlayer = function() {
    return "playerX";
   }
 };
+////////// Updates game state ////////
+
+const updateGamePlay = function(boxId) {
+  let index = boxId;
+  let value;
+  if (getPlayer() === "playerO") {
+    value = "X";
+  } else {
+    value = "O";
+  }
+  api.updateGame(ui.success, ui.failure, index, value);
+};
 
 ///////Adds 'taken' class to box that was clicked and changes box text to either
 ///// X or O.  Then, increments turns by 1.  Checks for a win and then a tie.
 ////Alerts next player.  Will alert that cell is unavailable if needed.
 const boxClicked = function(boxId) {
+  updateGamePlay(boxId);
   if(!$('.gametile#' + boxId).hasClass('taken') && getPlayer()==='playerO') {
     $('.gametile#' + boxId).html('O');
     $('.gametile#' + boxId).addClass('taken chosenO');
     turns++;
     checkWinO();
     checkTie();
+    checkGameOver();
     $('.turnAlert').html('Go Player X');
  } else if( !$('.gametile#' + boxId).hasClass('taken')&& getPlayer()==='playerX') {
     $('.gametile#' + boxId).html('X');
@@ -67,6 +97,7 @@ const boxClicked = function(boxId) {
     turns++;
     checkWinX();
     checkTie();
+    checkGameOver();
     $('.turnAlert').html('Go Player O');
   } else {alert("Cell Unavailable");
  }
